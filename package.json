@@ -1,0 +1,16 @@
+{
+  "name": "_lens",
+  "version": "0.0.1",
+  "description": "mouseover magnify/filter wrapper",
+  "main": "js/lens.js",
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^0.10.0"
+  },
+  "keywords": [
+    "magnify image"
+  ],
+  "author": "sd84",
+  "license": "GPL"
+}
