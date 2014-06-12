@@ -18,13 +18,15 @@
 var lens = (function() { 
     'use strict';
 
-    var spy, zoom, x, y;
+    var spy, zoom, diameter, x, y;
 
     var inspect = (function (el, options){
 
         spy = document.getElementById(el);
 
         zoom = (typeof options.zoom != "undefined") ? options.zoom : 3;
+
+        diameter = (typeof options.diameter != "undefined") ? options.diameter : 13;
 
         (function (){
             
@@ -33,8 +35,10 @@ var lens = (function() {
             function watch (e){
                 x = (e.pageX) ? e.pageX : e.clientX;
                 y = (e.pageY) ? e.pageY : e.clientY;
+                spy.style.width = options.diameter + 'em';
+                spy.style.height = options.diameter + 'em';
                 spy.style.backgroundSize = (zoom * 100) + '%';
-                spy.style.backgroundPosition = ((1-zoom) * x)  + 'px ' + ((1-zoom) * y) + 'px';
+                spy.style.backgroundPosition = (1 - zoom) * x  + 'px ' + (1 - zoom) * y + 'px';
                 spy.style.left = x - (spy.offsetWidth / 2);
                 spy.style.top = y - (spy.offsetHeight / 2);
                 e.preventDefault();
